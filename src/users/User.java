@@ -59,17 +59,49 @@ public class User {
 	
 	
 	public User(String username, String password, String name, LocalDate birthDate, String email, String phoneNumber, double money) {
-		//TODO validation for User constructor
-		this.username = username;
-		this.password = password;
-		if(name != null && !name.isEmpty()){
+		String usernameValidation = "^[a-z0-9_-]{3,15}$";
+		if(username.matches(usernameValidation)){
+			this.username = username;
+		}
+		else{
+			System.out.println("Invalid username!");
+		}
+		
+		String passValid = "(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*?[0-9])(?=\\S+$).{5,}";
+		if(password.matches(passValid)){
+			this.password = password;
+		}
+		else{
+			System.out.println("The password must have at least 5 symbols, at least one lower case, at least one upper case and at least one number.");
+		}
+	
+		String nameValid = "^[\\p{L} .'-]+$";
+		if(name.matches(nameValid)){
 			this.name = name;
-		}		
+		}	
+		else{
+			System.out.println("Invalid name!");
+		}
+		
 		this.birthDate = birthDate;
-		this.email = email;
-		this.phoneNumber = phoneNumber;
-		this.money = money;
-		this.rating = 0;
+		
+		String mailValid = "^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$";
+		if(email.matches(mailValid)){
+			this.email = email;
+		}
+		
+		String phoneValid = "^08[7-9][0-9]{7}$";
+		if(phoneNumber.matches(phoneValid)){
+			this.phoneNumber = phoneNumber;
+		}
+		
+		if(money > 0){
+			this.money = money;
+		}
+		
+		if(rating >= 0 && rating <= 100){
+			this.rating = 0;
+		}
 		
 		this.products = new HashSet<>();
 		this.soldProducts = new HashSet<>();
