@@ -37,11 +37,8 @@ public class User {
 			
 		}
 		
-		private void removeProduct(Product p){
-			if(this.products.containsKey(p)){
-				this.products.remove(p);
-			}
-		}
+		//TODO remove product
+		//TODO make order?
 	}
 	
 	private String username;
@@ -65,7 +62,9 @@ public class User {
 		//TODO validation for User constructor
 		this.username = username;
 		this.password = password;
-		this.name = name;
+		if(name != null && !name.isEmpty()){
+			this.name = name;
+		}		
 		this.birthDate = birthDate;
 		this.email = email;
 		this.phoneNumber = phoneNumber;
@@ -89,6 +88,9 @@ public class User {
 		this.shoppingCart.addProduct(p);
 	}
 	
-	
+	public void removeFromCart(Product p){
+		//TODO if exists in cart -> remove
+	}
 	
 }
+
