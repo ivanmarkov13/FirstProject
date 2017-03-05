@@ -11,7 +11,7 @@ import users.User;
 public class VzemiMe {
 	
 	private TreeSet<Product> productsByName;
-	private HashSet<User> users;
+	private TreeSet<User> users;
 	private HashSet<Order> finishedOrders;
 	
 	public VzemiMe() {
@@ -21,7 +21,7 @@ public class VzemiMe {
 				return o1.getName().compareTo(o2.getName());
 			}
 		});
-		users = new HashSet<>();
+		users = new TreeSet<>();
 	}
 	
 	public void addOrder(Order o){
@@ -36,8 +36,10 @@ public class VzemiMe {
 		users.add(u);
 	}
 
-	
-	
-	
-
+	public void addFinishedOrder(Order o){
+		if(o == null){
+			return;
+		}
+		this.finishedOrders.add(o);
+	}
 }

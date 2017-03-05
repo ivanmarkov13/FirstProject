@@ -5,6 +5,7 @@ import java.util.HashSet;
 
 import onlineShop.Order;
 import onlineShop.Product;
+import takeMe.VzemiMe;
 
 public class User {
 	
@@ -148,7 +149,7 @@ public class User {
 		this.shoppingCart.removeProduct(p, quantity);
 	}
 	
-	public void makeOrder(){
+	public void makeOrder(VzemiMe shop){
 		if(this.money < this.shoppingCart.cartPrice){
 			System.out.println("You don't have enough money to buy these products!");
 			return;
@@ -156,7 +157,7 @@ public class User {
 		
 		Order order = new Order(this.shoppingCart.products, this.shoppingCart.cartPrice, this);
 		this.finishedOrders.add(order);
-		
+		shop.addFinishedOrder(order);
 		
 		
 	}
