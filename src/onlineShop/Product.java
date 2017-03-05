@@ -8,7 +8,7 @@ public class Product {
 		private String name;
 		private double price;
 		
-		public Service(String name, double price) {
+		private Service(String name, double price) {
 			if(name != null && !name.isEmpty()){
 				this.name = name;
 			}
@@ -23,7 +23,7 @@ public class Product {
 	private double price;
 	private User owner;
 	private Service bonusService;
-	private int productNumber;
+	private static int productNumber = 1;
 	private int quantity;
 	
 	public Product(String name, String description, double price, User owner, Service bonusService, int quantity) {

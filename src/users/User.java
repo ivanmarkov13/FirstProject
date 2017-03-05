@@ -43,7 +43,7 @@ public class User {
 			}
 			
 			if(products.containsKey(p)){
-				if(products.get(p).intValue() >= quantity){
+				if(products.get(p) >= quantity){
 					this.products.put(p, p.getQuantity() - quantity);
 				}
 				else{
