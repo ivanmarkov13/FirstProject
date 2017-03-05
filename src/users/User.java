@@ -37,7 +37,28 @@ public class User {
 			
 		}
 		
-		//TODO remove product
+		private void removeProduct(Product p, int quantity){
+			if(p == null){
+				return;
+			}
+			
+			if(products.containsKey(p)){
+				if(products.get(p).intValue() >= quantity){
+					this.products.put(p, p.getQuantity() - quantity);
+				}
+				else{
+					System.out.println("Not enough quantity.");
+					return;
+				}
+			}
+			else{
+				System.out.println("The product is not in the cart.");
+				return;
+			}
+			this.cartPrice -= p.getPrice();
+
+		}
+		
 		//TODO make order?
 	}
 	
@@ -120,8 +141,11 @@ public class User {
 		this.shoppingCart.addProduct(p);
 	}
 	
-	public void removeFromCart(Product p){
-		//TODO if exists in cart -> remove
+	public void removeFromCart(Product p, int quantity){
+		if(p == null){
+			return;
+		}
+		this.shoppingCart.removeProduct(p, quantity);
 	}
 	
 }
