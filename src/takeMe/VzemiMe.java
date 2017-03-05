@@ -9,8 +9,8 @@ import users.User;
 
 public class VzemiMe {
 	
-	TreeSet<Product> products;
-	HashSet<User> users;
+	private TreeSet<Product> products;
+	private HashSet<User> users;
 	//finished orders
 	
 	public void addOrder(Order o){
