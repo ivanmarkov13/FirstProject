@@ -12,7 +12,7 @@ public class VzemiMe {
 	
 	private TreeSet<Product> productsByName;
 	private HashSet<User> users;
-	//finished orders
+	private HashSet<Order> finishedOrders;
 	
 	public VzemiMe() {
 		productsByName = new TreeSet<>(new Comparator<Product>() {
@@ -28,38 +28,15 @@ public class VzemiMe {
 		
 	}
 	
-	public void registrateUser(User u){
+	public void registerUser(User u){
 		if(users.contains(u)){
-			System.out.println("The user has registration.");
+			System.out.println("The user has a registration.");
 			return;
 		}
 		users.add(u);
 	}
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((users == null) ? 0 : users.hashCode());
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		VzemiMe other = (VzemiMe) obj;
-		if (users == null) {
-			if (other.users != null)
-				return false;
-		} else if (!users.equals(other.users))
-			return false;
-		return true;
-	}
+	
 	
 	
 

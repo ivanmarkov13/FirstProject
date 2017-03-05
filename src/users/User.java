@@ -44,7 +44,7 @@ public class User {
 			
 			if(products.containsKey(p)){
 				if(products.get(p) >= quantity){
-					this.products.put(p, p.getQuantity() - quantity);
+					this.products.put(p, products.get(p)  - quantity);
 				}
 				else{
 					System.out.println("Not enough quantity.");
@@ -55,7 +55,7 @@ public class User {
 				System.out.println("The product is not in the cart.");
 				return;
 			}
-			this.cartPrice -= p.getPrice();
+			this.cartPrice -= (p.getPrice() * quantity);
 
 		}
 		
@@ -146,6 +146,19 @@ public class User {
 			return;
 		}
 		this.shoppingCart.removeProduct(p, quantity);
+	}
+	
+	public void makeOrder(){
+		if(this.money < this.shoppingCart.cartPrice){
+			System.out.println("You don't have enough money to buy these products!");
+			return;
+		}
+		
+		Order order = new Order(this.shoppingCart.products, this.shoppingCart.cartPrice, this);
+		this.finishedOrders.add(order);
+		
+		
+		
 	}
 	
 }

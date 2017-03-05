@@ -23,7 +23,8 @@ public class Product {
 	private double price;
 	private User owner;
 	private Service bonusService;
-	private static int productNumber = 1;
+	private int productNumber;
+	private static int productNumberGenerator = 1;
 	private int quantity;
 	
 	public Product(String name, String description, double price, User owner, Service bonusService, int quantity) {
@@ -41,7 +42,7 @@ public class Product {
 		if(quantity > 0){
 			this.quantity = quantity;
 		}
-		productNumber++;
+		this.productNumber = productNumberGenerator++;
 	}
 
 	public double getPrice() {
