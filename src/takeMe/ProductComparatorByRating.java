@@ -4,7 +4,7 @@ import java.util.Comparator;
 
 import onlineShop.Product;
 
-public class ProductComparatorByRating implements Comparator<Product>{
+public class ProductComparatorByRating implements Comparator<Product>, IProductComparator{
 
 	@Override
 	public int compare(Product o1, Product o2) {
