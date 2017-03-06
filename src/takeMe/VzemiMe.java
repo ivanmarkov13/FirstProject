@@ -19,8 +19,9 @@ public class VzemiMe {
 	private HashMap<ProductCategory, TreeSet<Product>> products;
 	private TreeSet<User> users;
 	private HashSet<Order> finishedOrders;
+	private VzemiMe instance;
 	
-	public VzemiMe() {
+	private VzemiMe() {
 		
 //		productsByName = new TreeSet<>(new Comparator<Product>() {
 //			@Override
@@ -49,6 +50,13 @@ public class VzemiMe {
 		});
 		
 		this.finishedOrders = new HashSet<>();
+	}
+	
+	public VzemiMe getInstance(){
+		if(this.instance == null){
+			this.instance = new VzemiMe();
+		}
+		return this.instance;
 	}
 	
 	public void addOrder(Order o){
