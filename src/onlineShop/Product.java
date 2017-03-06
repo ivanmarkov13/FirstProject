@@ -1,8 +1,12 @@
 package onlineShop;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+
 import users.User;
 
 public class Product {
+	public enum ProductCategory{BEAUTY, SPA, RELAX, FOOD, ADVENTURE, SECOND_HAND, BRAND_NEW};
 	
 	private class Service {
 		private String name;
@@ -26,8 +30,10 @@ public class Product {
 	private int productNumber;
 	private static int productNumberGenerator = 1;
 	private int quantity;
+	private HashSet<ProductCategory> categories;
+	private int rating;
 	
-	public Product(String name, String description, double price, User owner, Service bonusService, int quantity) {
+	public Product(String name, String description, double price, User owner, Service bonusService, int quantity, int rating) {
 		if(name != null && !name.isEmpty()){
 			this.name = name;
 		}
@@ -42,7 +48,17 @@ public class Product {
 		if(quantity > 0){
 			this.quantity = quantity;
 		}
+		if(rating > 0){
+			this.rating = rating;
+		}
 		this.productNumber = productNumberGenerator++;
+	}
+	
+	public void addCategory(ProductCategory category){
+		if(category == null){
+			return;
+		}
+		this.categories.add(category);
 	}
 
 	public double getPrice() {
@@ -55,6 +71,18 @@ public class Product {
 
 	public String getName() {
 		return name;
+	}
+
+	public int getRating() {
+		return rating;
+	}
+
+	public int getProductNumber() {
+		return productNumber;
+	}
+
+	public HashSet<ProductCategory> getCategories() {
+		return categories;
 	}
 	
 	

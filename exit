@@ -1,0 +1,71 @@
+[33mcommit b87b3f0f049a8b2c4f761eeae321dbfaa528a06d[m
+Author: Ivan Markov <ivan.markov13@yahoo.com>
+Date:   Mon Mar 6 01:20:30 2017 +0200
+
+    changed collection for users to TreeSet(comp by username)
+
+[33mcommit b8ee6c8fbb8f620ba8b2bb086b181cc43d188217[m
+Author: Ivan Markov <ivan.markov13@yahoo.com>
+Date:   Mon Mar 6 01:12:11 2017 +0200
+
+    repair User and VzemiMe classes
+
+[33mcommit 14cb7be6184914c432b63aedbb4f7428f9674e39[m
+Author: Ivan Markov <ivan.markov13@yahoo.com>
+Date:   Mon Mar 6 00:55:45 2017 +0200
+
+    finish conflicts in workspace
+
+[33mcommit fb03e8905ae565dda8390360df7bc69f67d80338[m
+Author: Zara Andreeva <zara.andreeva@yahoo.com>
+Date:   Mon Mar 6 00:12:11 2017 +0200
+
+    added constructor, hashCode and equals and registrateUser() in class VzemiMe
+
+[33mcommit ade790a827f9edf67405b1852115152da0cd1412[m
+Author: Zara Andreeva <zara.andreeva@yahoo.com>
+Date:   Sun Mar 5 23:26:00 2017 +0200
+
+    added constructor, hashCode and equals and registrateUser() in class VzemiMe
+
+[33mcommit 63f6e50716fa612394b1c06aa6cf0db1b0f4e77b[m
+Author: Zara Andreeva <zara.andreeva@yahoo.com>
+Date:   Sun Mar 5 16:48:16 2017 +0200
+
+    added constructor int class Order
+
+[33mcommit c924d019c9301a5eb5c6fdb49027225447a2cf67[m
+Author: Zara Andreeva <zara.andreeva@yahoo.com>
+Date:   Sun Mar 5 16:38:25 2017 +0200
+
+    added removeProduct in User
+
+[33mcommit da10447460ebf95ec4de7082f348ab7c9fcba138[m
+Author: Zara Andreeva <zara.andreeva@yahoo.com>
+Date:   Sat Mar 4 13:23:22 2017 +0200
+
+    validation
+
+[33mcommit 94837bfaa6c6493c024106e2e7b7bfc9d6275a91[m
+Author: Zara Andreeva <zara.andreeva@yahoo.com>
+Date:   Sat Mar 4 12:04:11 2017 +0200
+
+    added class variables and constructors
+
+[33mcommit 9e094471de2a4f4ddf31bce26adabc700a647239[m
+Author: Ivan Markov <ivan.markov13@yahoo.com>
+Date:   Sat Mar 4 11:44:24 2017 +0200
+
+    Added addToCart() method in User class
+
+[33mcommit 4544b3610f9d1c7b59f74535db814701513e3f10[m
+Author: Ivan Markov <ivan.markov13@yahoo.com>
+Date:   Sat Mar 4 11:39:34 2017 +0200
+
+    Added .gitignore file
+
+[33mcommit cb6085df8cd31f97ecbab1dbb0f406a65598bc0f[m
+Author: ivanmarkov13 <ivan.markov13@yahoo.com>
+Date:   Sat Mar 4 11:27:14 2017 +0200
+
+    Initial commit

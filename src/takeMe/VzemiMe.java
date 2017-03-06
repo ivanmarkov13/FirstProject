@@ -1,27 +1,53 @@
 package takeMe;
 
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.TreeSet;
 
 import onlineShop.Order;
 import onlineShop.Product;
+import onlineShop.Product.ProductCategory;
 import users.User;
 
 public class VzemiMe {
 	
-	private TreeSet<Product> productsByName;
+	
+	
+//	private TreeSet<Product> productsByName;
+	private HashMap<ProductCategory, TreeSet<Product>> products;
 	private TreeSet<User> users;
 	private HashSet<Order> finishedOrders;
 	
 	public VzemiMe() {
-		productsByName = new TreeSet<>(new Comparator<Product>() {
+		
+//		productsByName = new TreeSet<>(new Comparator<Product>() {
+//			@Override
+//			public int compare(Product o1, Product o2) {
+//				return o1.getName().compareTo(o2.getName());
+//			}
+//		});
+		
+		this.products = new  HashMap<>();
+		ProductComparatorByRating comp = new ProductComparatorByRating();
+		this.products.put(ProductCategory.BEAUTY, new TreeSet<>(comp));
+		this.products.put(ProductCategory.SPA, new TreeSet<>(comp));
+		this.products.put(ProductCategory.RELAX, new TreeSet<>(comp));
+		this.products.put(ProductCategory.FOOD, new TreeSet<>(comp));
+		this.products.put(ProductCategory.ADVENTURE, new TreeSet<>(comp));
+		this.products.put(ProductCategory.SECOND_HAND, new TreeSet<>(comp));
+		this.products.put(ProductCategory.BRAND_NEW, new TreeSet<>(comp));
+		
+		this.users = new TreeSet<>(new Comparator<User>() {
+
 			@Override
-			public int compare(Product o1, Product o2) {
-				return o1.getName().compareTo(o2.getName());
+			public int compare(User o1, User o2) {
+				return o1.getUsername().compareTo(o2.getUsername());
 			}
+			
 		});
-		users = new TreeSet<>();
+		
+		this.finishedOrders = new HashSet<>();
 	}
 	
 	public void addOrder(Order o){
@@ -30,7 +56,7 @@ public class VzemiMe {
 	
 	public void registerUser(User u){
 		if(users.contains(u)){
-			System.out.println("The user has a registration.");
+			System.out.println("The user already has a registration.");
 			return;
 		}
 		users.add(u);
@@ -41,5 +67,20 @@ public class VzemiMe {
 			return;
 		}
 		this.finishedOrders.add(o);
+	}
+	
+	
+	public void addProduct(Product p){
+		if(p == null){
+			return;
+		}
+		
+		HashSet<ProductCategory> categories = p.getCategories();
+		
+		for (ProductCategory productCategory : categories) {
+			this.products.get(productCategory).add(p);
+		}
+		
+		
 	}
 }

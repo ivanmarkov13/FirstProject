@@ -159,8 +159,15 @@ public class User {
 		this.finishedOrders.add(order);
 		shop.addFinishedOrder(order);
 		
-		
 	}
+
+
+
+	public String getUsername() {
+		return username;
+	}
+	
+	
 	
 }
 
