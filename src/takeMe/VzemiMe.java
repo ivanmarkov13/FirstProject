@@ -3,6 +3,7 @@ package takeMe;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map.Entry;
 import java.util.TreeSet;
 
 import onlineShop.Order;
@@ -82,5 +83,48 @@ public class VzemiMe {
 		}
 		
 		
+	}
+	
+	private void putProductsInSortedCollection(TreeSet<Product> sortedProducts){
+		for (Entry<ProductCategory, TreeSet<Product>> e : this.products.entrySet()) {
+			for (Product product : e.getValue()) {
+				sortedProducts.add(product);
+			}
+		}
+	}
+	
+	public void showAllProductsByRating(){
+		TreeSet<Product> sortedProducts = new TreeSet<>(new ProductComparatorByRating());
+		
+		putProductsInSortedCollection(sortedProducts);
+		
+		//TODO print sortedProducts
+	}
+	
+
+	public void showAllProductsByName(){
+		TreeSet<Product> sortedProducts = new TreeSet<>(new ProductComparatorByName());
+
+		putProductsInSortedCollection(sortedProducts);
+		
+		//TODO print sortedProducts
+
+	}
+	
+	public void showAllProductsByAscendingPrice(){
+		TreeSet<Product> sortedProducts = new TreeSet<>(new ProductComparatorByAscendingPrice());
+		
+		putProductsInSortedCollection(sortedProducts);
+		
+		//TODO print sortedProducts
+
+	}
+	
+	public void showAllProductsDescendingPrice(){
+		TreeSet<Product> sortedProducts = new TreeSet<>(new ProductComparatorByDescendingPrice());
+
+		putProductsInSortedCollection(sortedProducts);
+		
+		//TODO print sortedProducts
 	}
 }
