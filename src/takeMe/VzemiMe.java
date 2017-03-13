@@ -102,38 +102,23 @@ public class VzemiMe {
 		}
 	}
 	
-	public void showAllProductsByRating(){
-		TreeSet<Product> sortedProducts = new TreeSet<>(new ProductComparatorByRating());
-		
+	
+	public void sortAllProducts(IProductComparator comp){
+		TreeSet<Product> sortedProducts = new TreeSet<>(comp);
 		putProductsInSortedCollection(sortedProducts);
 		
 		//TODO print sortedProducts
 	}
 	
-
-	public void showAllProductsByName(){
-		TreeSet<Product> sortedProducts = new TreeSet<>(new ProductComparatorByName());
-
-		putProductsInSortedCollection(sortedProducts);
+	
+	public void sortCategory(ProductCategory category, IProductComparator comp){
+		TreeSet<Product> sortedCategory = new TreeSet<>(comp);
 		
-		//TODO print sortedProducts
-
+		for (Product product : this.products.get(category)) {
+			sortedCategory.add(product);
+		}
+		
+		//TODO something with the sorted category
 	}
 	
-	public void showAllProductsByAscendingPrice(){
-		TreeSet<Product> sortedProducts = new TreeSet<>(new ProductComparatorByAscendingPrice());
-		
-		putProductsInSortedCollection(sortedProducts);
-		
-		//TODO print sortedProducts
-
-	}
-	
-	public void showAllProductsDescendingPrice(){
-		TreeSet<Product> sortedProducts = new TreeSet<>(new ProductComparatorByDescendingPrice());
-
-		putProductsInSortedCollection(sortedProducts);
-		
-		//TODO print sortedProducts
-	}
 }
