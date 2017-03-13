@@ -8,6 +8,7 @@ import onlineShop.Product;
 import takeMe.VzemiMe;
 
 public class User {
+	private static int orderNumberGenerator = 1;
 	
 	
 	private class Cart {
@@ -63,6 +64,11 @@ public class User {
 		//TODO make order?
 	}
 	
+	
+	
+
+	
+	
 	private String username;
 	private String password;
 	private String name;
@@ -111,10 +117,17 @@ public class User {
 		if(email.matches(mailValid)){
 			this.email = email;
 		}
+		else{
+			System.out.println("Invalid mail!");
+			
+		}
 		
 		String phoneValid = "^08[7-9][0-9]{7}$";
 		if(phoneNumber.matches(phoneValid)){
 			this.phoneNumber = phoneNumber;
+		}
+		else{
+			System.out.println("Invalid phone number!");
 		}
 		
 		if(money > 0){
@@ -149,7 +162,7 @@ public class User {
 		this.shoppingCart.removeProduct(p, quantity);
 	}
 	
-	public void makeOrder(VzemiMe shop){
+	public void makeOrder(){
 		if(this.money < this.shoppingCart.cartPrice){
 			System.out.println("You don't have enough money to buy these products!");
 			return;
@@ -157,7 +170,7 @@ public class User {
 		
 		Order order = new Order(this.shoppingCart.products, this.shoppingCart.cartPrice, this);
 		this.finishedOrders.add(order);
-		shop.addFinishedOrder(order);
+		VzemiMe.getInstance().addFinishedOrder(order);
 		
 	}
 

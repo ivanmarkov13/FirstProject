@@ -19,7 +19,7 @@ public class VzemiMe {
 	private HashMap<ProductCategory, TreeSet<Product>> products;
 	private TreeSet<User> users;
 	private HashSet<Order> finishedOrders;
-	private VzemiMe instance;
+	private static VzemiMe instance;
 	
 	private VzemiMe() {
 		
@@ -52,11 +52,11 @@ public class VzemiMe {
 		this.finishedOrders = new HashSet<>();
 	}
 	
-	public VzemiMe getInstance(){
-		if(this.instance == null){
-			this.instance = new VzemiMe();
+	public static VzemiMe getInstance(){
+		if(instance == null){
+			instance = new VzemiMe();
 		}
-		return this.instance;
+		return instance;
 	}
 	
 	public void addOrder(Order o){
@@ -76,6 +76,7 @@ public class VzemiMe {
 			return;
 		}
 		this.finishedOrders.add(o);
+		
 	}
 	
 	
