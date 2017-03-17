@@ -95,7 +95,7 @@ public class User {
 			System.out.println("Invalid username!");
 		}
 		
-		String passValid = "(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*?[0-9])(?=\\S+$).{5,}";
+		String passValid = "(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{5,}";
 		if(password.matches(passValid)){
 			this.password = password;
 		}

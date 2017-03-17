@@ -52,17 +52,21 @@
 <button class="btn_login" onclick="cambiar_login()">LOGIN</button>
   </div>
   
+  <form action = "RegisterServlet" method = "POST">
    <div class="cont_form_sign_up">
 <a href="#" onclick="ocultar_login_sign_up()"><i class="material-icons">&#xE5C4;</i></a>
      <h2>SIGN UP</h2>
-<input type="text" placeholder="Email" />
-<input type="text" placeholder="User" />
-<input type="password" placeholder="Password" />
-<input type="password" placeholder="Confirm Password" />
+<input type="email" placeholder="Email" required="required"/>
+<input type="text" placeholder="UserName" required="required" pattern = "[a-z0-9_-]{3,15}$"/>  <!-- pattern = "[a-z0-9_-]{3,15}$" -->
+<input type="password" placeholder="Password(UpperCase,LowerCase,Number)" required="required" pattern = "(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{5,}"/>
+<input type="text" placeholder="First Name" required="required" />
+<input type="date" placeholder="BirthDate" required="required" />
+<input type="text" placeholder="Phone Number" pattern="08[7-9][0-9]{7}$" required="required"/>
+<input type="number" placeholder="Money" min="1" max="5000" required="required"/>
 <button class="btn_sign_up" onclick="cambiar_sign_up()">SIGN UP</button>
 
   </div>
-
+</form>>
     </div>
     
   </div>
