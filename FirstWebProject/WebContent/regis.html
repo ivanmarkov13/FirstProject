@@ -44,29 +44,41 @@
     <div class="cont_img_back_">
        <img src="https://images.unsplash.com/42/U7Fc1sy5SCUDIu4tlJY3_NY_by_PhilippHenzler_philmotion.de.jpg?ixlib=rb-0.3.5&q=50&fm=jpg&crop=entropy&s=7686972873678f32efaf2cd79671673d" alt="" />
        </div>
- <div class="cont_form_login">
-<a href="#" onclick="ocultar_login_sign_up()" ><i class="material-icons">&#xE5C4;</i></a>
-   <h2>LOGIN</h2>
- <input type="text" placeholder="Email" />
-<input type="password" placeholder="Password" />
-<button class="btn_login" onclick="cambiar_login()">LOGIN</button>
-  </div>
-  
-  <form action = "RegisterServlet" method = "POST">
-   <div class="cont_form_sign_up">
-<a href="#" onclick="ocultar_login_sign_up()"><i class="material-icons">&#xE5C4;</i></a>
-     <h2>SIGN UP</h2>
-<input type="email" placeholder="Email" required="required"/>
-<input type="text" placeholder="UserName" required="required" pattern = "[a-z0-9_-]{3,15}$"/>  <!-- pattern = "[a-z0-9_-]{3,15}$" -->
-<input type="password" placeholder="Password(UpperCase,LowerCase,Number)" required="required" pattern = "(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{5,}"/>
-<input type="text" placeholder="First Name" required="required" />
-<input type="date" placeholder="BirthDate" required="required" />
-<input type="text" placeholder="Phone Number" pattern="08[7-9][0-9]{7}$" required="required"/>
-<input type="number" placeholder="Money" min="1" max="5000" required="required"/>
-<button class="btn_sign_up" onclick="cambiar_sign_up()">SIGN UP</button>
+
+
+<!-- Login form -->       
+<form action="LoginServlet" method = "POST">     
+	 <div class="cont_form_login">
+		<a href="#" onclick="ocultar_login_sign_up()" ><i class="material-icons">&#xE5C4;</i></a>
+	   	<h2>LOGIN</h2>
+	 	<input type="text" placeholder="Email" name="username"/>
+		<input type="password" placeholder="Password" name="password"/>
+		<button type = "submit" class="btn_login" onclick="cambiar_login()">LOGIN</button>
+	  </div>
+</form>
+<!-- End of login form -->
+
+
+<!-- Register form -->
+<form action = "RegisterServlet" method = "POST">
+   	<div class="cont_form_sign_up">
+		<a href="#" onclick="ocultar_login_sign_up()"><i class="material-icons">&#xE5C4;</i></a>
+	    <h2>SIGN UP</h2>
+		<input type="email" placeholder="Email" required="required"/>
+		<input type="text" placeholder="UserName" required="required" pattern="[a-z0-9_-]{3,15}$"/>
+	
+		<input type="password" placeholder="Password(UpperCase,LowerCase,Number)" required="required" pattern = "(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{5,}" id="password"/>
+		<input type="password" placeholder="Confirm Password" id="confirm_password" required>
+	
+		<input type="text" placeholder="Name" required="required" />
+		<input type="date" placeholder="BirthDate" required="required" />
+		<input type="text" placeholder="Phone Number" pattern="08[7-9][0-9]{7}$" required="required"/>
+		<input type="number" placeholder="Money" min="1" max="5000" required="required"/>
+		<button type = "submit" class="btn_sign_up"  class="pure-button pure-button-primary" onclick="cambiar_sign_up()">SIGN UP</button>
 
   </div>
-</form>>
+</form>
+<!-- End of register form -->
     </div>
     
   </div>
@@ -74,6 +86,7 @@
 </div>
 
 <script>
+
 /* ------------------------------------ Click on login and Sign Up to  changue and view the effect
 ---------------------------------------
 */
@@ -119,9 +132,21 @@ document.querySelector('.cont_form_login').style.display = "none";
   
   }
 
+/* Validating password */
+var password = document.getElementById("password")
+, confirm_password = document.getElementById("confirm_password");
 
+function validatePassword(){
+if(password.value != confirm_password.value) {
+  confirm_password.setCustomValidity("Passwords Don't Match");
+} else {
+  confirm_password.setCustomValidity('');
+}
+}
 
-
+password.onchange = validatePassword;
+confirm_password.onkeyup = validatePassword;
+/* End validating password */
 </script>
 
 </body>

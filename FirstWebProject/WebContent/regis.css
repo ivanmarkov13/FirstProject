@@ -78,8 +78,8 @@ transition: all 0.5s;
 
 .cont_forms_active_sign_up {
 box-shadow: 1px 10px 30px -10px rgba(0,0,0,0.5);
-  height: 420px;  
-top:20px;
+  height: 680px;  
+top:20px;/* top:20px; */
 left:320px;
 -webkit-transition: all 0.5s;
 -moz-transition: all 0.5s;
@@ -309,12 +309,14 @@ display: none;
 transition: all 0.5s;
 }
 
-  
+
+
 .cont_form_sign_up > input {
+	
 text-align: left;
-  padding: 10px 5px;
+  padding: 15px 5px;
 margin-left: 3px;
-margin-top: 5px;
+margin-top: 20px;
   width: 260px;
 border: none;
     color: #757575;
@@ -322,7 +324,7 @@ border: none;
 
 .cont_form_sign_up > h2 {
 margin-top: 50px; 
-font-weight: 400;
+font-weight: 400;/* font-weight: 400; */
   color: #757575;
 }
 
