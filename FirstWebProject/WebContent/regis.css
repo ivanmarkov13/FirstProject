@@ -351,3 +351,10 @@ font-weight: 400;
     margin: 10px;
 margin-left: 30px;
 }
+
+@media only screen and (min-width:1536px){
+        /* styles for browsers larger than 1536px; */
+        .cont_forms_active_sign_up {
+		  height: 700px;  
+		}
+}
