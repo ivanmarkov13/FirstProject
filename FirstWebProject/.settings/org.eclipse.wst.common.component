@@ -4,7 +4,6 @@
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/model"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/WebContent"/>
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/dao"/>
         <property name="context-root" value="FirstWebProject"/>
         <property name="java-output-path" value="/FirstWebProject/build/classes"/>
     </wb-module>
