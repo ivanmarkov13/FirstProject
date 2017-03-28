@@ -1,46 +1,60 @@
 package controller;
 
-import java.sql.*;
 import java.io.IOException;
+import java.sql.Date;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.mysql.fabric.Response;
-import com.mysql.jdbc.Connection;
+import daoObjs.UserDAO;
+import users.User;
 
 /**
  * Servlet implementation class RegisterServlet
  */
-@WebServlet("/RegisterServlet")
+@WebServlet("/register")
 public class RegisterServlet extends HttpServlet {
-	
-	private static final String DB_IP = "25.74.14.85";
-	private static final String DB_PORT = "3306";
-	private static final String DB_NAME = "hr";
-	private static final String DB_USERNAME = "zara";
-	private static final String DB_PASSWORD = "123";
-	
-	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			
-		} catch (ClassNotFoundException e) {
-			resp.getWriter().append(e.getMessage());
-		}
-		
-		try {
-			java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://25.74.14.85:3306/firstprojectdb",DB_USERNAME,DB_PASSWORD);
-			Statement stmt = con.createStatement();
-			
-			ResultSet rs = stmt.executeQuery("");
-		} catch (SQLException e) {
-			resp.getWriter().append(e.getMessage());
-		}
-		
-	}
 
+//	@Override
+//	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+//		//TODO validacia ako validaciqta na frontend nivo spre ili ako ima veche takuv registriran potrebitel
+//		String username = req.getParameter("username");
+//		String password = req.getParameter("password");
+//		String name = req.getParameter("name");
+//		String bdate = req.getParameter("birthdate");
+//		String email = req.getParameter("email");
+//		String phoneNum = req.getParameter("phonenumber");
+//		Double money = Double.valueOf(req.getParameter("money"));
+//		User u = new User(username, password, name,	LocalDate.parse(bdate), email, phoneNum, money);
+//		UserDAO.getInstance().addUser(u);
+//		//TODO index page
+//		resp.sendRedirect("regis.html");
+//	}
+
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp)throws ServletException{
+		//TODO validacia ako validaciqta na frontend nivo spre ili ako ima veche takuv registriran potrebitel
+		String username = req.getParameter("username");
+		String password = req.getParameter("password");
+		String name = req.getParameter("name");
+		String bdate = req.getParameter("birthdate");
+		String email = req.getParameter("email");
+		String phoneNum = req.getParameter("phonenumber");
+		Double money = Double.valueOf(req.getParameter("money"));
+		User u = new User(username, password, name,	LocalDate.parse(bdate), email, phoneNum, money);
+		UserDAO.getInstance().addUser(u);
+		//TODO index page
+		try {
+			resp.sendRedirect("regis.html");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 }
