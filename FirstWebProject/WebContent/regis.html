@@ -60,22 +60,21 @@
 
 
 <!-- Register form -->
-<form action = "RegisterServlet" method = "POST">
+<form action = "register" method = "post">
    	<div class="cont_form_sign_up">
 		<a href="#" onclick="ocultar_login_sign_up()"><i class="material-icons">&#xE5C4;</i></a>
 	    <h2>SIGN UP</h2>
-		<input type="email" placeholder="Email" required="required"/>
-		<input type="text" placeholder="UserName" required="required" pattern="[a-z0-9_-]{3,15}$"/>
+		<input type="email" placeholder="Email" required="required" name="email"/>
+		<input type="text" placeholder="UserName" required="required" pattern="[a-z0-9_-]{3,15}$" name="username"/>
 	
-		<input type="password" placeholder="Password(UpperCase,LowerCase,Number)" required="required" pattern = "(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{5,}" id="password"/>
+		<input type="password" placeholder="Password(UpperCase,LowerCase,Number)" required="required"  id="password" name="password"/> <!-- pattern="(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{5,}" -->
 		<input type="password" placeholder="Confirm Password" id="confirm_password" required>
 	
-		<input type="text" placeholder="Name" required="required" />
-		<input type="date" placeholder="BirthDate" required="required" />
-		<input type="text" placeholder="Phone Number" pattern="08[7-9][0-9]{7}$" required="required"/>
-		<input type="number" placeholder="Money" min="1" max="5000" required="required"/>
+		<input type="text" placeholder="Name" required="required" name="name"/>
+		<input type="date" placeholder="BirthDate" required="required" name="birthdate"/>
+		<input type="text" placeholder="Phone Number" pattern="08[7-9][0-9]{7}$" required="required" name="phonenumber"/>
+		<input type="number" placeholder="Money" min="1" max="5000" required="required" name="money"/>
 		<button type = "submit" class="btn_sign_up"  class="pure-button pure-button-primary" onclick="cambiar_sign_up()">SIGN UP</button>
-
   </div>
 </form>
 <!-- End of register form -->

@@ -28,7 +28,8 @@ public class DBManager {
 				System.out.println("oops " + e.getMessage());
 			}
 			try {
-				con = DriverManager.getConnection("jdbc:mysql://"+ DB_IP +":" + DB_PORT + "/" + DB_NAME , DB_USER, DB_PASS);
+//				jdbc:mysql://localhost:3306/Peoples?autoReconnect=true&useSSL=false
+				con = DriverManager.getConnection("jdbc:mysql://"+ DB_IP +":" + DB_PORT + "/" + DB_NAME + "?autoReconnect=true&useSSL=false", DB_USER, DB_PASS);
 			} catch (SQLException e) {
 				System.out.println("oops " + e.getMessage());
 			}

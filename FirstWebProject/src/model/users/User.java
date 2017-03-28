@@ -73,7 +73,7 @@ public class User {
 	private String username;
 	private String password;
 	private String name;
-	private Date birthDate;
+	private LocalDate birthDate;
 	private String email;
 	private String phoneNumber;
 	
@@ -87,7 +87,7 @@ public class User {
 	
 	
 	
-	public User(String username, String password, String name, Date birthDate, String email, String phoneNumber, double money) {
+	public User(String username, String password, String name, LocalDate birthDate, String email, String phoneNumber, double money) {
 		String usernameValidation = "^[a-z0-9_-]{3,15}$";
 		if(username.matches(usernameValidation)){
 			this.username = username;
@@ -114,12 +114,14 @@ public class User {
 		
 		this.birthDate = birthDate;
 		
-		String mailValid = "^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$";
+//		String mailValid = "^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$";
+		String mailValid = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*"
+			      +"@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
 		if(email.matches(mailValid)){
 			this.email = email;
 		}
 		else{
-			System.out.println("Invalid mail!");
+			System.out.println("Invalid mail!****");
 			
 		}
 		
@@ -208,7 +210,7 @@ public class User {
 		return phoneNumber;
 	}
 
-	public Date getBirthDate() {
+	public LocalDate getBirthDate() {
 		return birthDate;
 	}
 
