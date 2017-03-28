@@ -1,5 +1,6 @@
 package demo;
 
+import java.sql.Date;
 import java.time.LocalDate;
 
 import takeMe.VzemiMe;
@@ -10,7 +11,7 @@ public class Demo {
 		
 		VzemiMe vzemiMe = VzemiMe.getInstance();
 		
-		User u1 = new User("vankata96", "Vankata1234", "Ivan Petrov", LocalDate.of(1996, 2, 13), "vankdasdsa", "dasadsda", -12);
+		User u1 = new User("vankata96", "Vankata1234", "Ivan Petrov", Date.valueOf(LocalDate.of(1996, 3, 13)), "vankdasdsa", "dasadsda", -12);
 		
 		
 	}

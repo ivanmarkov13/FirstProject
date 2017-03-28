@@ -1,4 +1,5 @@
 package users;
+import java.sql.Date;
 import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -68,11 +69,11 @@ public class User {
 	
 
 	
-	
+	private long userId;
 	private String username;
 	private String password;
 	private String name;
-	private LocalDate birthDate;
+	private Date birthDate;
 	private String email;
 	private String phoneNumber;
 	
@@ -86,7 +87,7 @@ public class User {
 	
 	
 	
-	public User(String username, String password, String name, LocalDate birthDate, String email, String phoneNumber, double money) {
+	public User(String username, String password, String name, Date birthDate, String email, String phoneNumber, double money) {
 		String usernameValidation = "^[a-z0-9_-]{3,15}$";
 		if(username.matches(usernameValidation)){
 			this.username = username;
@@ -180,7 +181,39 @@ public class User {
 		return username;
 	}
 	
+	public String getPassword() {
+		return password;
+	}
 	
+	public void setUserId(long userId) {
+		this.userId = userId;
+	}
+
+
+
+	public String getName() {
+		return name;
+	}
+
+
+
+	public String getEmail() {
+		return email;
+	}
+
+
+
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
+
+	public Date getBirthDate() {
+		return birthDate;
+	}
+
+	public double getMoney() {
+		return money;
+	}
 	
 }
 

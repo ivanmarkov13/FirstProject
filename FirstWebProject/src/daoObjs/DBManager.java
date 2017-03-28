@@ -7,8 +7,8 @@ public class DBManager {
 		private static final String DB_PORT = "3306";
 		private static final String DB_NAME =  "firstprojectdb";
 		private static final String DB_USER = "root";
-		private static final String DB_PASS = "dominos";
-
+//		private static final String DB_PASS = "dominos";
+		private static final String DB_PASS = "summertime11";
 
 		private static DBManager instance;
 		
@@ -34,6 +34,9 @@ public class DBManager {
 			}
 		}
 	
-		
+		public Connection getConnection() {
+			return con;
+		}
 	
+		
 }
