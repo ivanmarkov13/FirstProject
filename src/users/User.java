@@ -100,7 +100,7 @@ public class User {
 			this.password = password;
 		}
 		else{
-			System.out.println("The password must have at least 5 symbols, at least one lower case, at least one upper case and at least one number.");
+			System.out.println("The password must have at least 5555 symbols, at least one lower case, at least one upper case and at least one number.");
 		}
 	
 		String nameValid = "^[\\p{L} .'-]+$";
