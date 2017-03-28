@@ -33,10 +33,13 @@ public class DBManager {
 				System.out.println("oops " + e.getMessage());
 			}
 		}
-	
+
 		public Connection getConnection() {
 			return con;
 		}
+
 	
+
+
 		
 }

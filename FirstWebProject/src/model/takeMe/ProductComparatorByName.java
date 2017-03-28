@@ -9,7 +9,7 @@ public class ProductComparatorByName implements Comparator<Product>, IProductCom
 	@Override
 	public int compare(Product o1, Product o2) {
 		if(o1.getName().equals(o2.getName())){
-			return o2.getProductNumber() - o1.getProductNumber();
+//			return o2.getProductNumber() - o1.getProductNumber();
 		}
 		return o1.getName().compareTo(o2.getName());
 	}

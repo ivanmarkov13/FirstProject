@@ -171,7 +171,7 @@ public class User {
 		
 		Order order = new Order(this.shoppingCart.products, this.shoppingCart.cartPrice, this);
 		this.finishedOrders.add(order);
-		VzemiMe.getInstance().addFinishedOrder(order);
+//		VzemiMe.getInstance().addFinishedOrder(order);
 		
 	}
 
@@ -181,6 +181,7 @@ public class User {
 		return username;
 	}
 	
+
 	public String getPassword() {
 		return password;
 	}
@@ -215,5 +216,16 @@ public class User {
 		return money;
 	}
 	
+
+	public void addPersonalProduct(Product p){
+		if(p == null){
+			return;
+		}
+		this.products.add(p);
+	}
+
+	public HashSet<Product> getProducts() {
+		return products;
+	}
 }
 

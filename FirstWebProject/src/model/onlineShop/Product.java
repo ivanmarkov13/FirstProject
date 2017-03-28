@@ -25,15 +25,15 @@ public class Product {
 	private String name;
 	private String description;
 	private double price;
-	private User owner;
-	private Service bonusService;
-	private int productNumber;
+	private int owner_id;
+	private int service_id;
+	private long product_id;
 	private static int productNumberGenerator = 1;
 	private int quantity;
-	private HashSet<ProductCategory> categories;
-	private int rating;
+	private ProductCategory category;
+	private int soldPieces;
 	
-	public Product(String name, String description, double price, User owner, Service bonusService, int quantity, int rating) {
+	public Product(String name, String description, double price, int quantity, int owner_id, ProductCategory category, int service_id) {
 		if(name != null && !name.isEmpty()){
 			this.name = name;
 		}
@@ -43,22 +43,32 @@ public class Product {
 		if(price > 0){
 			this.price = price;
 		}
-		this.owner = owner;
-		this.bonusService = bonusService;
 		if(quantity > 0){
 			this.quantity = quantity;
 		}
-		if(rating > 0){
-			this.rating = rating;
+		if(owner_id > 0){
+			this.owner_id = owner_id;
 		}
-		this.productNumber = productNumberGenerator++;
+		if(category != null){
+			this.category = category;
+		}
+		this.soldPieces = 0;
+		this.service_id = service_id;
+		
 	}
 	
-	public void addCategory(ProductCategory category){
+	public void setProduct_id(long product_id) {
+		if(product_id < 1){
+			return;
+		}
+		this.product_id = product_id;
+	}
+	
+	public void setCategory(ProductCategory category) {
 		if(category == null){
 			return;
 		}
-		this.categories.add(category);
+		this.category = category;
 	}
 
 	public double getPrice() {
@@ -73,40 +83,32 @@ public class Product {
 		return name;
 	}
 
-	public int getRating() {
-		return rating;
+
+	public long getProduct_id() {
+		return product_id;
 	}
 
-	public int getProductNumber() {
-		return productNumber;
+	public ProductCategory getCategory() {
+		return category;
 	}
 
-	public HashSet<ProductCategory> getCategories() {
-		return categories;
-	}
-
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + productNumber;
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Product other = (Product) obj;
-		if (productNumber != other.productNumber)
-			return false;
-		return true;
-	}
 	
 
-
+	public String getDescription() {
+		return description;
+	}
+	
+	
+	public int getOwner_id() {
+		return owner_id;
+	}
+	
+	
+	public int getService_id() {
+		return service_id;
+	}
+	
+	public void setSoldPieces(int soldPieces) {
+		this.soldPieces = soldPieces;
+	}
 }
