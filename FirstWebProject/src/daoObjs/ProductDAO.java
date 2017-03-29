@@ -9,7 +9,7 @@ import onlineShop.Product.ProductCategory;
 import users.User;
 
 public class ProductDAO {
-	private ProductDAO instance;
+	private static ProductDAO instance;
 	private static final HashMap<Long, Product> allProducts = new HashMap<>();
 	
 	
@@ -18,7 +18,7 @@ public class ProductDAO {
 	}
 	
 	
-	public synchronized ProductDAO getInstance(){
+	public synchronized static ProductDAO getInstance(){
 		if(instance == null){
 			instance = new ProductDAO();
 		}
@@ -28,11 +28,11 @@ public class ProductDAO {
 	
 	
 	public synchronized void addProduct(Product p, User u){
-		String sql = "INSERT INTO products (name, description, price, quantity, owner_id, soldpieces, category, service_id) values (?, ?, ?, ?, ?, ?, ?, ?)";
+		String sql = "INSERT INTO products (name, description, price, quantity, owner_id, soldpieces, category) values (?, ?, ?, ?, ?, ?, ?)";
 		PreparedStatement st = null;
 		ResultSet res = null;
 		try {
-			st = DBManager.getInstance().getConnection().prepareStatement(sql);
+			st = DBManager.getInstance().getConnection().prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 			
 			st.setString(1, p.getName());
 			st.setString(2, p.getDescription());
@@ -41,7 +41,6 @@ public class ProductDAO {
 			st.setInt(5, p.getOwner_id());
 			st.setInt(6, 0);
 			st.setString(7, p.getCategory().name());
-			st.setInt(8, p.getService_id());
 			st.execute();
 			
 			res = st.getGeneratedKeys();
@@ -93,9 +92,8 @@ public class ProductDAO {
 					int owner_id = set.getInt("owner_id");
 					int sold_pieces = set.getInt("soldpieces");
 					ProductCategory category = ProductCategory.valueOf(set.getString("category"));
-					int service_id = set.getInt("service_id");
 					
-					Product p = new Product(product_name, description, price, quantity, owner_id, category, service_id);
+					Product p = new Product(product_name, description, price, quantity, owner_id, category);
 					p.setProduct_id(product_id);
 					p.setSoldPieces(sold_pieces);
 					

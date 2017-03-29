@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import daoObjs.UserDAO;
+import users.User;
 
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
@@ -20,19 +21,18 @@ public class LoginServlet extends HttpServlet {
 	}
 
 	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException { 
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
 		if(UserDAO.getInstance().validLogin(email, password)){
+			User u = UserDAO.getInstance().getAllUsers().get(email);
 			HttpSession session = request.getSession();
-			session.setAttribute("username", email);
+			session.setAttribute("user", u);
 			session.setAttribute("logged", true);
-			//TODO profile page .html
 			response.sendRedirect("profile.html");
 		}
 		else{
-			//TODO error page
-			response.sendRedirect("regis.html");
+			response.sendRedirect("errorLogin.html");
 		}
 	}
 

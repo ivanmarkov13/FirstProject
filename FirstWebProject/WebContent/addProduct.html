@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>AddProduct</title>
+</head>
+<body>
+
+<form action="login" method="get">
+		 <label class="logoutLblPos3">
+		 <input name="submit4" type="submit" id="submit4" value="Back To Main Page">
+		 </label>
+		</form>
+  
+<form action = "AddProduct" method = "post">
+   	<div class="cont_form_sign_up">
+		<h2>Add Product</h2>
+	    <input type="text" placeholder="Name" required="required" name="name"/> <br>
+	    <input type="text" placeholder="Description" required="required" name="description"/> <br>
+		<input type="number" placeholder="Price" min="1" max="5000" required="required" name="price"/> <br>
+		<input type="number" placeholder="Quantity" min="1" max="10" required="required" name="quantity"/> <br>
+		 <h3>Category:</h3>
+		<input type="radio" name="category" value = "Beauty"> Beauty<BR>
+		<input type="radio" name="category" value = "Spa"> Spa<BR>
+		<input type="radio" name="category" value = "Trip"> Trip<BR>
+		<input type="radio" name="category" value = "Food"> Food<BR>
+		<input type="radio" name="category" value = "Adventure"> Adventure<BR>
+		<input type="radio" name="category" value = "Second Hand"> Second Hand<BR>
+		<input type="radio" name="category" value = "Brand New"> Brand New<BR>
+		<br>
+		<button type = "submit" class="btn_sign_up"  class="pure-button pure-button-primary" onclick="cambiar_sign_up()">Add Product</button>
+  </div>
+</form>
+
+<BODY BGCOLOR="#cfd8dc">
+
+</body>
+</html>

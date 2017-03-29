@@ -229,5 +229,9 @@ public class User {
 	public HashSet<Product> getProducts() {
 		return products;
 	}
+	
+	public long getUser_id() {
+		return user_id;
+	}
 }
 
