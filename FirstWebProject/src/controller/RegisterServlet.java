@@ -34,8 +34,7 @@ public class RegisterServlet extends HttpServlet {
 		Double money = Double.valueOf(req.getParameter("money"));
 		User u = new User(username, password, name,	LocalDate.parse(bdate), email, phoneNum, money);
 		UserDAO.getInstance().addUser(u);
-		//TODO index page
-		resp.sendRedirect("regis.html");
+		resp.sendRedirect("profile.html");
 	}
 
 }
