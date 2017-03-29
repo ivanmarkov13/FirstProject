@@ -69,7 +69,7 @@ public class User {
 	
 
 	
-	private long userId;
+	private long user_id;
 	private String username;
 	private String password;
 	private String name;
@@ -189,7 +189,7 @@ public class User {
 	}
 	
 	public void setUserId(long userId) {
-		this.userId = userId;
+		this.user_id = userId;
 	}
 
 

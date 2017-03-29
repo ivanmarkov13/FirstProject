@@ -22,24 +22,8 @@ import users.User;
 @WebServlet("/register")
 public class RegisterServlet extends HttpServlet {
 
-//	@Override
-//	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//		//TODO validacia ako validaciqta na frontend nivo spre ili ako ima veche takuv registriran potrebitel
-//		String username = req.getParameter("username");
-//		String password = req.getParameter("password");
-//		String name = req.getParameter("name");
-//		String bdate = req.getParameter("birthdate");
-//		String email = req.getParameter("email");
-//		String phoneNum = req.getParameter("phonenumber");
-//		Double money = Double.valueOf(req.getParameter("money"));
-//		User u = new User(username, password, name,	LocalDate.parse(bdate), email, phoneNum, money);
-//		UserDAO.getInstance().addUser(u);
-//		//TODO index page
-//		resp.sendRedirect("regis.html");
-//	}
-
 	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp)throws ServletException{
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp)throws ServletException, IOException {
 		//TODO validacia ako validaciqta na frontend nivo spre ili ako ima veche takuv registriran potrebitel
 		String username = req.getParameter("username");
 		String password = req.getParameter("password");
@@ -51,10 +35,7 @@ public class RegisterServlet extends HttpServlet {
 		User u = new User(username, password, name,	LocalDate.parse(bdate), email, phoneNum, money);
 		UserDAO.getInstance().addUser(u);
 		//TODO index page
-		try {
-			resp.sendRedirect("regis.html");
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		resp.sendRedirect("regis.html");
 	}
+
 }
