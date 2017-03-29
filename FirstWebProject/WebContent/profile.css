@@ -19,7 +19,14 @@ overflow:hidden;
 .logoutLblPos{
 
    position:fixed;
-   right:10px;
+   right:20px;
+   top:5px;
+}
+
+.logoutLblPos2{
+
+   position:fixed;
+   right:100px;
    top:5px;
 }
 

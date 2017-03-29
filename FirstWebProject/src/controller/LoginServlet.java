@@ -16,7 +16,7 @@ import daoObjs.UserDAO;
 public class LoginServlet extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		response.sendRedirect("index.html");
 	}
 
 	
@@ -31,8 +31,8 @@ public class LoginServlet extends HttpServlet {
 			response.sendRedirect("profile.html");
 		}
 		else{
-			//TODO index.html
-			response.sendRedirect("index.html");
+			//TODO error page
+			response.sendRedirect("regis.html");
 		}
 	}
 
