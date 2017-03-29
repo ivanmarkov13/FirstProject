@@ -46,15 +46,14 @@ public class UserDAO {
 			long user_id = res.getLong(1);
 			u.setUserId(user_id);
 		} catch (SQLException e) {
-//			System.out.println("addUser: " + e.getMessage());
-			e.printStackTrace();
+			System.out.println("addUser: " + e.getMessage());
 		}
-		allUsers.put(u.getUsername(), u);
+		allUsers.put(u.getEmail(), u);
 	}
 	
 	public HashMap<String, User> getAllUsers(){
 		if(allUsers.isEmpty()){
-			String sql = "SELECT id, username, password, name, birthDate, email, phonenumber, money;";
+			String sql = "SELECT user_id, username, password, name, birthdate, email, phonenumber, money FROM users" ;
 			PreparedStatement st;
 			try {
 				st = DBManager.getInstance().getConnection().prepareStatement(sql);
@@ -69,7 +68,7 @@ public class UserDAO {
 					String phoneNum = res.getString("phonenumber");
 					User u = new User(username, pass, name, date, email, phoneNum, money);
 					u.setUserId(res.getLong("user_id"));
-					allUsers.put(u.getUsername(), u);
+					allUsers.put(u.getEmail(), u);
 				}
 			} catch (SQLException e) {
 				System.out.println("getUsers: " + e.getMessage());
@@ -78,9 +77,9 @@ public class UserDAO {
 		return allUsers;
 	}
 	
-	public synchronized boolean validLogin(String user, String pass){
-		if(getAllUsers().containsKey(user)){
-			return getAllUsers().get(user).getPassword().equals(pass);
+	public synchronized boolean validLogin(String email, String pass){
+		if(getAllUsers().containsKey(email)){
+			return getAllUsers().get(email).getPassword().equals(pass);
 		}
 		return false;
 	}
