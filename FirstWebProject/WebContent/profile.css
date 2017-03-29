@@ -1,33 +1,39 @@
-.user-row {
-    margin-bottom: 14px;
+body { 
+
+background:#cfd8dc;
+
 }
 
-.user-row:last-child {
-    margin-bottom: 0;
+#photo {
+
+margin:auto;
+margin-top:100px;
+height:200px;
+width:200px;
+border-radius:300px;
+border:3px solid black;
+overflow:hidden;
+
 }
 
-.dropdown-user {
-    margin: 13px 0;
-    padding: 5px;
-    height: 100%;
+.logoutLblPos{
+
+   position:fixed;
+   right:10px;
+   top:5px;
 }
 
-.dropdown-user:hover {
-    cursor: pointer;
-}
+#photo img { height:200px; width:200px;}
 
-.table-user-information > tbody > tr {
-    border-top: 1px solid rgb(221, 221, 221);
-}
+#about {
 
-.table-user-information > tbody > tr:first-child {
-    border-top: 0;
-}
+margin:auto;
+margin-top:10px;
+height:200px;
+width:200px;
 
 
-.table-user-information > tbody > tr > td {
-    border-top: 0;
 }
-.toppad
-{margin-top:20px;
-}
+
+#about table { width:200px;}
+#about table tr td { background:black; color:white; border:1px solid white; padding:10px; font-family:Cuprum; text-align:center;}
