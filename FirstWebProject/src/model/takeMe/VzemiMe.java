@@ -34,7 +34,7 @@ public class VzemiMe {
 //		ProductComparatorByRating comp = new ProductComparatorByRating();
 //		this.products.put(ProductCategory.BEAUTY, new TreeSet<>(comp));
 //		this.products.put(ProductCategory.SPA, new TreeSet<>(comp));
-//		this.products.put(ProductCategory.RELAX, new TreeSet<>(comp));
+//		this.products.put(ProductCategory.TRIP, new TreeSet<>(comp));
 //		this.products.put(ProductCategory.FOOD, new TreeSet<>(comp));
 //		this.products.put(ProductCategory.ADVENTURE, new TreeSet<>(comp));
 //		this.products.put(ProductCategory.SECOND_HAND, new TreeSet<>(comp));

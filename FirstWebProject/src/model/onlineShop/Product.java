@@ -33,7 +33,7 @@ public class Product {
 	private ProductCategory category;
 	private int soldPieces;
 	
-	public Product(String name, String description, double price, int quantity, int owner_id, ProductCategory category, int service_id) {
+	public Product(String name, String description, double price, int quantity, int owner_id, ProductCategory category) {
 		if(name != null && !name.isEmpty()){
 			this.name = name;
 		}
@@ -53,7 +53,6 @@ public class Product {
 			this.category = category;
 		}
 		this.soldPieces = 0;
-		this.service_id = service_id;
 		
 	}
 	
