@@ -28,6 +28,7 @@ public class LoginServlet extends HttpServlet {
 			User u = UserDAO.getInstance().getAllUsers().get(email);
 			HttpSession session = request.getSession();
 			session.setAttribute("user", u);
+			session.setMaxInactiveInterval(3000);
 			session.setAttribute("logged", true);
 			response.sendRedirect("profile.html");
 		}

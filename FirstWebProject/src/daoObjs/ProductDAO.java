@@ -10,7 +10,7 @@ import users.User;
 
 public class ProductDAO {
 	private static ProductDAO instance;
-	private static final HashMap<Long, Product> allProducts = new HashMap<>();
+	public static final HashMap<Long, Product> allProducts = new HashMap<>();
 	
 	
 	private ProductDAO() {
@@ -31,6 +31,7 @@ public class ProductDAO {
 		String sql = "INSERT INTO products (name, description, price, quantity, owner_id, soldpieces, category) values (?, ?, ?, ?, ?, ?, ?)";
 		PreparedStatement st = null;
 		ResultSet res = null;
+		long id = 0;
 		try {
 			st = DBManager.getInstance().getConnection().prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 			
@@ -45,7 +46,7 @@ public class ProductDAO {
 			
 			res = st.getGeneratedKeys();
 			res.next();
-			long id = res.getLong(1);
+			id = res.getLong(1);
 			p.setProduct_id(id);
 			allProducts.put(id, p);
 			
@@ -67,9 +68,6 @@ public class ProductDAO {
 				System.out.println("oops " + e.getMessage());
 			}
 		}
-		
-		
-		
 	}
 	
 	
@@ -119,6 +117,33 @@ public class ProductDAO {
 		}
 		
 		return allProducts;
+	}
+
+
+	public void addImgPath(Product p, String fileName) {
+//		String sql = "UPDATE products SET img_path=" + fileName + " WHERE product_id=" + p.getProduct_id();
+		String sql = "UPDATE products SET img_path=' "+ fileName +" ' WHERE product_id='"+ p.getProduct_id() + "';";
+		
+		PreparedStatement st = null;
+		try {
+			st = DBManager.getInstance().getConnection().prepareStatement(sql);
+			
+			st.execute();
+			
+		} catch (SQLException e) {
+			System.out.println("oops " + e.getMessage());
+		}
+		finally {
+			try{
+				if(st != null){
+					st.close();
+				}
+			}
+			catch (SQLException e) {
+				System.out.println("oops " + e.getMessage());
+			}
+		}
+		
 	}
 	
 }
