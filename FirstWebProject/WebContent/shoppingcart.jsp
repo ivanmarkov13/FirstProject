@@ -91,9 +91,11 @@ ddsmoothmenu.init({
             </div>
             
         </div>
-        -->
         
-    
+        --> 
+        
+        <%@ include file="/menu.html" %>
+        
         <div id="content" class="float_r">
         	<h1>Shopping Cart</h1>
         	<table width="680px" cellspacing="0" cellpadding="5">
@@ -143,15 +145,15 @@ ddsmoothmenu.init({
                     </div>
 			</div>
         <div class="cleaner"></div>
-    </div> <!-- END of templatemo_main -->
+     </div> <!-- END of templatemo_main --> 
     
     <div id="templatemo_footer">
     	<p><a href="index.html">Home</a> | <a href="products.html">Products</a> 
 		</p>	
     </div> <!-- END of templatemo_footer -->
     
-</div> <!-- END of templatemo_wrapper -->
-</div> <!-- END of templatemo_body_wrapper -->
+ </div> <!-- END of templatemo_wrapper -->
+ </div> <!-- END of templatemo_body_wrapper -->
 
 </body>
 </html>
