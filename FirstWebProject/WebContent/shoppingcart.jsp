@@ -12,12 +12,6 @@
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <script type="text/javascript" src="js/ddsmoothmenu.js">
 
-/***********************************************
-* Smooth Navigational Menu- (c) Dynamic Drive DHTML code library (www.dynamicdrive.com)
-* This notice MUST stay intact for legal use
-* Visit Dynamic Drive at http://www.dynamicdrive.com/ for full source code
-***********************************************/
-
 </script>
 
 <script type="text/javascript">
@@ -35,65 +29,7 @@ ddsmoothmenu.init({
 </head>
 
 <body>
-<!-- 
-<div id="templatemo_body_wrapper">
-<div id="templatemo_wrapper">
 
-	<div id="templatemo_header">
-    	<div id="site_title"><h1><a href="#">Offers for everyone</a></h1></div>
-        <div id="header_right">
-        	<p>
-	        <a href="profile.html">My Profile</a> |<a href="shoppingcart.html">My Cart</a> | <a href="regis.html">Log In / Registration</a>
-	        </p>
-            <p>
-            	<font color="#FFFFFF"> Shopping Cart:  ( </font> <a href="shoppingcart.html">Show Cart</a> <font color="#FFFFFF"> ) </font>
-			</p>
-		</div>
-        <div class="cleaner"></div>
-    </div> 
-    
-    <div id="templatemo_menubar">
-    	<div id="top_nav" class="ddsmoothmenu">
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="products.html">Products</a>
-                    <ul>
-                        <li><a href="#submenu1">Beauty</a></li>
-                        <li><a href="#submenu2">Spa</a></li>
-                        <li><a href="#submenu3">Trip</a></li>
-                        <li><a href="#submenu4">Food</a></li>
-                        <li><a href="#submenu5">Adventure</a></li>
-                        <li><a href="#submenu4">Second Hand</a></li>
-                        <li><a href="#submenu5">Brand New</a></li>
-                  </ul>
-                </li>
-             </ul>
-            <br style="clear: left" />
-        </div> 
-
-    </div> 
-     
-    <div id="templatemo_main">
-    	<div id="sidebar" class="float_l">
-        	<div class="sidebar_box"><span class="bottom"></span>
-            	<h3>Categories</h3>   
-                <div class="content"> 
-                	<ul class="sidebar_list">
-                    	<li class="first"><a href="#">Beauty</a></li>
-                        <li><a href="#">Spa</a></li>
-                        <li><a href="#">Trip</a></li>
-                        <li><a href="#">Food</a></li>
-                        <li><a href="#">Adventure</a></li>
-                        <li><a href="#">Second Hand</a></li>
-                        <li class="last"><a href="#">Brand New</a></li>
-                    </ul>
-                </div>
-            </div>
-            
-        </div>
-        
-        --> 
-        
         <%@ include file="/menu.html" %>
         
         <div id="content" class="float_r">
@@ -148,7 +84,7 @@ ddsmoothmenu.init({
      </div> <!-- END of templatemo_main --> 
     
     <div id="templatemo_footer">
-    	<p><a href="index.html">Home</a> | <a href="products.html">Products</a> 
+    	<p><a href="index.jsp">Home</a> | <a href="products.jsp">Products</a> 
 		</p>	
     </div> <!-- END of templatemo_footer -->
     
