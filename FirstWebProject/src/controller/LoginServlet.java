@@ -17,7 +17,7 @@ import users.User;
 public class LoginServlet extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.sendRedirect("index.html");
+		response.sendRedirect("index.jsp");
 	}
 
 	
