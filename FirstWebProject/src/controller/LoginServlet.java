@@ -29,7 +29,7 @@ public class LoginServlet extends HttpServlet {
 			HttpSession session = request.getSession();
 			session.setAttribute("user", u);
 			session.setAttribute("logged", true);
-			response.sendRedirect("profile.html");
+			response.sendRedirect("profile.jsp");
 		}
 		else{
 			response.sendRedirect("errorLogin.html");

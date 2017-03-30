@@ -101,7 +101,7 @@ public class User {
 			this.password = password;
 		}
 		else{
-			System.out.println("The password must have at least 5 symbols, at least one lower case, at least one upper case and at least one number.");
+//			System.out.println("The password must have at least 5 symbols, at least one lower case, at least one upper case and at least one number.");
 		}
 	
 		String nameValid = "^[\\p{L} .'-]+$";
@@ -121,7 +121,7 @@ public class User {
 			this.email = email;
 		}
 		else{
-			System.out.println("Invalid mail!****");
+//			System.out.println("Invalid mail!****");
 			
 		}
 		
@@ -130,7 +130,7 @@ public class User {
 			this.phoneNumber = phoneNumber;
 		}
 		else{
-			System.out.println("Invalid phone number!");
+//			System.out.println("Invalid phone number!");
 		}
 		
 		if(money > 0){

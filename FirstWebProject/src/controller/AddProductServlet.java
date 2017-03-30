@@ -36,7 +36,7 @@ public class AddProductServlet extends HttpServlet {
 				User u = (User) req.getSession().getAttribute("user");
 				Product p = new Product(name, description, price, quantity, (int)u.getUser_id(), ProductCategory.ADVENTURE);
 				ProductDAO.getInstance().addProduct(p, u);
-				resp.sendRedirect("profile.html");
+				resp.sendRedirect("profile.jsp");
 	}
 
 

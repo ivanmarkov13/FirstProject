@@ -34,7 +34,7 @@ ddsmoothmenu.init({
 
 <body>
 
-          <%@ include file="/menu.html" %>
+          <%@ include file="/menu.jsp" %>
          
         <div id="content" class="float_r">
         	<div id="slider-wrapper">
