@@ -12,7 +12,7 @@ import com.mysql.jdbc.Statement;
 import users.User;
 
 public class UserDAO {
-	
+	//TODO global handler here
 	private static UserDAO instance;
 	private static final HashMap<String, User> allUsers = new HashMap<>();
 	
