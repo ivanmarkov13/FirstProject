@@ -18,7 +18,7 @@ import users.User;
 
 
 @WebServlet("/AddProduct")
-public class AddProduct extends HttpServlet {
+public class AddProductServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.sendRedirect("addProduct.html");
