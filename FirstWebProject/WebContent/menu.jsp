@@ -38,7 +38,25 @@ ddsmoothmenu.init({
     	<div id="site_title"><h1><a href="#">Offers for everyone</a></h1></div>
         <div id="header_right">
         	<p>
-	        <a href="profile.html">My Profile</a> |<a href="shoppingcart.jsp">My Cart</a> | <a href="regis.html">Log In / Registration</a>
+        	<%
+	         	if(session.getAttribute("user") != null){ %>
+	        	  <a href="regis.html">My Profile</a>
+	         	<%}
+	         	else{ %>
+	         		<a href="regis.html">My Profile</a>
+	         	<%}
+	         %>
+	       
+	         |<a href="shoppingcart.jsp">My Cart</a> 
+	         
+	         |<%
+	         	if(session.getAttribute("user") != null){ %>
+	        	 <a href="wrongClickLogin.html">Log In / Registration</a>
+	         	<%}
+	         	else{ %>
+	         		<a href="regis.html">Log In / Registration</a>
+	         	<%}
+	         %>
 	        </p>
             <p>
             	<font color="#FFFFFF"> Shopping Cart:  ( </font> <a href="shoppingcart.jsp">Show Cart</a> <font color="#FFFFFF"> ) </font>

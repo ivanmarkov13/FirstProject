@@ -30,7 +30,7 @@ public class LoginServlet extends HttpServlet {
 			session.setAttribute("user", u);
 			session.setMaxInactiveInterval(3000);
 			session.setAttribute("logged", true);
-			response.sendRedirect("profile.html");
+			response.sendRedirect("profile.jsp");
 		}
 		else{
 			response.sendRedirect("errorLogin.html");
