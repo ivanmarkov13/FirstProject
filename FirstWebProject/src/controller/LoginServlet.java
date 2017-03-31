@@ -21,20 +21,29 @@ public class LoginServlet extends HttpServlet {
 	}
 
 	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException { 
-		String email = request.getParameter("email");
-		String password = request.getParameter("password");
-		if(UserDAO.getInstance().validLogin(email, password)){
-			User u = UserDAO.getInstance().getAllUsers().get(email);
-			HttpSession session = request.getSession();
-			session.setAttribute("user", u);
-			session.setMaxInactiveInterval(3000);
-			session.setAttribute("logged", true);
-			response.sendRedirect("profile.jsp");
-		}
-		else{
-			response.sendRedirect("errorLogin.html");
-		}
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//		if((Boolean) request.getSession().getAttribute("logged")){
+//			User u = (User) request.getSession().getAttribute("user");
+//			System.out.println(u.getEmail());
+//			response.sendRedirect("wrongClickLogin.html");
+//		}
+		
+		
+//		else{
+			String email = request.getParameter("email");
+			String password = request.getParameter("password");
+			if(UserDAO.getInstance().validLogin(email, password)){
+				User u = UserDAO.getInstance().getAllUsers().get(email);
+				HttpSession session = request.getSession();
+				session.setAttribute("user", u);
+				session.setMaxInactiveInterval(3000);
+				session.setAttribute("logged", true);
+				response.sendRedirect("profile.jsp");
+			}
+			else{
+				response.sendRedirect("errorLogin.html");
+			}
+//		}
 	}
 
 }
