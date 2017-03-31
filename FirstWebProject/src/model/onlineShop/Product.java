@@ -32,7 +32,8 @@ public class Product {
 	private int quantity;
 	private ProductCategory category;
 	private int soldPieces;
-	
+
+
 	public Product(String name, String description, double price, int quantity, int owner_id, ProductCategory category) {
 		if(name != null && !name.isEmpty()){
 			this.name = name;

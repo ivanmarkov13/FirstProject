@@ -1,3 +1,9 @@
+<%@page import="onlineShop.Product"%>
+<%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>
+<%@page import="java.util.HashMap"%>
+<%@page import="java.util.Map.Entry"%>
+<%@page import="daoObjs.ProductDAO"%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="java.time.LocalDate"%>
 <%@page import="users.User"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -33,7 +39,7 @@ ddsmoothmenu.init({
 </head>
 
 <body>
-
+	<div>
          
           <%@ include file="/menu.jsp" %>
          
@@ -41,27 +47,33 @@ ddsmoothmenu.init({
         	<h1> Products</h1>
         	<!-- <div class="cleaner"></div> -->
                    	
-                   	
+            <%!ArrayList<Product> products = new ArrayList(); %>	
+            <%!HashMap<Long, Product> productFromDao = ProductDAO.getInstance().getAllProducts();%>
+            
+            <% 
+            	for(Entry<Long, Product> e : productFromDao.entrySet()){
+            		products.add(e.getValue());
+            	}
+            
+            %>
             
             
-            <% for(int i=0;i<10;i++){ %>
-    		<%!User user = new  User("vankata","dasds","das",LocalDate.now(),"das","2121",5.1);%>
-      		<div class="product_box">
-            <h3>Ut eu feugiat</h3>
-           	<a href="productdetail.html"><img src="images/product/01.jpg" alt="Shoes 1" /></a>
-            <p><%=user.getMoney()%></p>
-            <p class="product_price">$ <%=user.getMoney()%>  </p>
-            <a href="shoppingcart.jsp" class="addtocart"></a>
-            <a href="productdetail.jsp" class="detail"></a>
-			</div> 
-    
-			<%}%>
             
-            ${user}<input name="${user.getName()}" type="text" />
-			<input name="<%=user.getMoney()%>" type="text" />
-			
+            <%for(Product p : products){%>
             
-              
+            	<div class="product_box">
+		            <h3><%=p.getName()%></h3>
+	            	<a href="productdetail.jsp"><img src="images/product/01.jpg" alt="Shoes 1" /></a>
+	                <p><%=p.getDescription()%></p>
+	                <p class="product_price">$ <%=p.getPrice()%></p>
+	                <a href="shoppingcart.html" class="addtocart"></a>
+	                <a href="productdetail.html" class="detail"></a>
+            	</div>
+            	
+            <%}%>
+            
+            <%products = new ArrayList();%>
+    		  
         </div> 
         <div class="cleaner" ></div>
     </div> <!-- END of templatemo_main -->

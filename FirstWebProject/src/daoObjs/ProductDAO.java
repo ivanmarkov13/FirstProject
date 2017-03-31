@@ -3,6 +3,7 @@ package daoObjs;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 
 import onlineShop.Product;
 import onlineShop.Product.ProductCategory;
@@ -11,8 +12,7 @@ import users.User;
 public class ProductDAO {
 	private static ProductDAO instance;
 	public static final HashMap<Long, Product> allProducts = new HashMap<>();
-	
-	
+
 	private ProductDAO() {
 		
 	}
