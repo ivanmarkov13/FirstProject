@@ -108,7 +108,11 @@ public class Product {
 		return service_id;
 	}
 	
-	public void setSoldPieces(int soldPieces) {
-		this.soldPieces = soldPieces;
+	public void incrementSoldPieces() {
+		this.soldPieces++;
+	}
+
+	public void setSoldPieces(int sold_pieces) {
+		this.soldPieces = sold_pieces;
 	}
 }

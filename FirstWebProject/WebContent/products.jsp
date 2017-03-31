@@ -66,8 +66,13 @@ ddsmoothmenu.init({
 	            	<a href="productdetail.jsp"><img src="images/product/01.jpg" alt="Shoes 1" /></a>
 	                <p><%=p.getDescription()%></p>
 	                <p class="product_price">$ <%=p.getPrice()%></p>
-	                <a href="shoppingcart.html" class="addtocart"></a>
-	                <a href="productdetail.html" class="detail"></a>
+	                
+	        	<form action="addToCart" method = "post">
+	    			<input type="hidden" name="product_id" value="<%=p.getProduct_id()%>" name="product_id"/>
+		            <button class="addtocart" type="submit">Add To Cart</button>`
+		            
+				</form>	
+			
             	</div>
             	
             <%}%>
@@ -77,7 +82,7 @@ ddsmoothmenu.init({
         </div> 
         <div class="cleaner" ></div>
     </div> <!-- END of templatemo_main -->
-    
+    </div>
     <div id="templatemo_footer">
     	<p><a href="index.jsp">Home</a> | <a href="products.jsp">Products</a> 
 		</p>

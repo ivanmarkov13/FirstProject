@@ -1,8 +1,10 @@
 package users;
 import java.sql.Date;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map.Entry;
 
 import onlineShop.Order;
 import onlineShop.Product;
@@ -15,6 +17,13 @@ public class User {
 	private class Cart {
 		private HashMap<Product, Integer> products;
 		private double cartPrice;
+		
+		
+		private HashMap<Product, Integer> getProducts() {
+			return products;
+		}
+		
+		
 		
 		private Cart(){
 			this.products = new HashMap<>();
@@ -40,6 +49,15 @@ public class User {
 			
 		}
 		
+		
+		private void removeFromCart(Product p){
+			if(!this.products.containsKey(p)){
+				return;
+			}
+			this.products.remove(p);
+		}
+		
+		
 		private void removeProduct(Product p, int quantity){
 			if(p == null){
 				return;
@@ -64,6 +82,7 @@ public class User {
 		
 		//TODO make order?
 	}
+	
 	
 	
 	
@@ -232,6 +251,30 @@ public class User {
 	
 	public long getUser_id() {
 		return user_id;
+	}
+	
+	public ArrayList<Product> getProductsFromCart(){
+		ArrayList<Product> products = new ArrayList<>();
+		
+		Cart c = this.shoppingCart;
+		
+		for (Entry<Product, Integer> e : c.getProducts().entrySet()) {
+			products.add(e.getKey());
+		}
+		
+		return products;
+	}
+	
+	public HashMap<Product, Integer> getShoppingCart() {
+		return shoppingCart.getProducts();
+	}
+	
+	
+	public void removeProduct(Product p){
+		if(p == null){
+			return;
+		}
+		this.shoppingCart.removeFromCart(p);
 	}
 }
 
