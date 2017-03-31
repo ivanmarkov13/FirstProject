@@ -39,19 +39,12 @@ public class AddProductServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)throws ServletException, IOException {
 		//TODO validacia ako validaciqta na frontend nivo spre ili ako ima veche takuv registriran potrebitel
-				System.out.println(req.getParameter("name") == null);
 				String name = req.getParameter("name");
-				System.out.println(req.getParameter("description") == null);
 				String description = req.getParameter("description");
-//				double price = Double.valueOf(req.getParameter("price"));
-				System.out.println(req.getParameter("price") == null);
 				double price = Double.parseDouble(req.getParameter("price"));
-				
 				int quantity = Integer.valueOf(req.getParameter("quantity"));
-				String bdate = req.getParameter("birthdate");
 				String category = req.getParameter("category");
 				User u = (User) req.getSession().getAttribute("user");
-				System.out.println((u==null)+"*******");
 				Product p = new Product(name, description, price, quantity, (int)u.getUser_id(), ProductCategory.ADVENTURE);
 				ProductDAO.getInstance().addProduct(p, u);
 				HttpSession session = req.getSession();

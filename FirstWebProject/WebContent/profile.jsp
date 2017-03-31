@@ -45,7 +45,7 @@
   </label>
 </form>
 
-<form action="" method="">
+<form action="UploadPhotoServlet" method="post">
   <label class="logoutLblPos5">
   <input name="submit6" type="submit" id="submit6" value="Upload Photo">
   </label>
