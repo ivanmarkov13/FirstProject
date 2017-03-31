@@ -39,18 +39,18 @@ ddsmoothmenu.init({
         <div id="header_right">
         	<p>
         	<%
-	         	if(session.getAttribute("user") != null){ %>
+	         	if(!(Boolean)session.getAttribute("logged")){ %>
 	        	  <a href="regis.html">My Profile</a>
 	         	<%}
 	         	else{ %>
-	         		<a href="regis.html">My Profile</a>
+	         		<a href="profile.jsp">My Profile</a>
 	         	<%}
 	         %>
 	       
 	         |<a href="shoppingcart.jsp">My Cart</a> 
 	         
 	         |<%
-	         	if(session.getAttribute("user") != null){ %>
+	         	if((Boolean)session.getAttribute("logged")){ %>
 	        	 <a href="wrongClickLogin.html">Log In / Registration</a>
 	         	<%}
 	         	else{ %>
